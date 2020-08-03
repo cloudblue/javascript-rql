@@ -46,6 +46,21 @@ interface IRQL {
     [key: string]?: string|number|Array<string|number>|boolean|IRQLExpression;
 }
 ```
+#### Usage
+You can import rql function:
+```
+import { rql } from 'javascript-rql';
+```
+or
+```
+const { rql } = require('javascript-rql');
+```
+
+and use:
+```
+rql(...)
+```
+
 
 #### Examples
 
