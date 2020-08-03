@@ -15,5 +15,5 @@ deploy:
   api_key:
     secure: RH516PUoT/NjljcbTxSgcCaEAqNXJ68D/fcgj8OHRgau/XzZ/P++Vxy9Ii955+9f1xA2OgZnqIhZSDZtP3oIj4VLeTPgGnlfE7ZQ/MdPnTxL63wcK/KtsI4FNjz6/H5fXw27eV831FYjtvfhgI0p/Z2TFHVt/Z4tKUh+g3XQpPY4CWwRDj98g4+J23K6ntqrv/OogLkEL/tpK8mMWFWJRWxYrHtaLXt6ArEwvQKvfHec0k/L6ec6/JQulUqymVRZhEHGlGLCPSIquH0FyVOao2dAdqf39Rtn7lD6bkiaeaMhmcejoI7wblt5I1j8Ni32WCWb4h/DgwNyYysPzJb+oQApHW75a/P7u5SipWejhZuqdB4mr5Boa531XcZGLMU8T4tJ4DlqpgDnEVuAWm6r2wMFT7iAkxhZcN1ZTEI0TEEsOGIcnwqaplFc2ZiZFMbzc/QW1GpYQBHzRq5tmQtf69lE3gaU3dwZXQsEoMpoTE1+tlDODXX7JWlMl1nsJM/3ba4OvTss20wCoouf5TJNB6UIG+ugfWyJygKnsMuBVNHkY82wyUfVg3sNQxROSYwgZBMCns4VkdNdSWYhHQZ9xKBEHi9mvwwKjGG20UOIttuYrv4TlLyiiX/gujMJc0a19FdJiAwrPv2DzuxMR3/KvFkMqHmZgSaa/wlUk9QRfjY=
   on:
-    repo: cloudblue/connect-javascript-sdk
+    repo: cloudblue/javascript-rql
     branch: master
