@@ -14,7 +14,8 @@ This is a query language fast and convenient database interaction. RQL was desig
 
 [Django RQL](https://github.com/cloudblue/django-rql)
 
-### Interface
+Interface
+---
 
 Javascript object with rql expressions should implement the following interface (typescript example):
 ```
@@ -46,7 +47,8 @@ interface IRQL {
     [key: string]?: string|number|Array<string|number>|boolean|IRQLExpression;
 }
 ```
-#### Usage
+Usage
+---
 You can import rql function:
 ```
 import { rql } from 'javascript-rql';
@@ -62,7 +64,8 @@ rql(...)
 ```
 
 
-#### Examples
+Examples
+---
 
 ##### Simple filters
 
