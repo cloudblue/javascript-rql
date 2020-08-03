@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/borzovplus/javascript-rql.git"
+    "url": "git+https://github.com/cloudblue/javascript-rql"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/borzovplus/javascript-rql/issues"
+    "url": "https://github.com/cloudblue/javascript-rql/issues"
   },
-  "homepage": "https://github.com/borzovplus/javascript-rql#readme",
+  "homepage": "https://github.com/cloudblue/javascript-rql#readme",
   "dependencies": {
     "ramda": "^0.27.1"
   },
