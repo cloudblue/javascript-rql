@@ -68,10 +68,7 @@ Temporary Items
 .idea
 
 # Junit report files
-TESTS-*
-/test/coverage/
-coverage.lcov.dat
-remapped.coverage.json
+/tests/coverage/
 
 # Docker image building
 !/build/config.yml
