@@ -1,0 +1,61 @@
+---
+extends:
+  - airbnb-base
+  - plugin:import/warnings
+
+env:
+  jest/globals: true
+  browser: true
+  node: true
+
+plugins:
+  - import
+  - jest
+
+settings:
+  import/resolver:
+    webpack:
+      config: 'webpack.config.js'
+
+rules:
+  no-multiple-empty-lines: off
+  import/no-webpack-loader-syntax: off
+  import/no-cycle:
+    - error
+    - maxDepth: 2
+  import/order: off
+  import/no-extraneous-dependencies: off
+  import/newline-after-import:
+    - error
+    - count: 2
+  padding-line-between-statements:
+    - error
+    - blankLine: always
+      prev: "*"
+      next: return
+    - blankLine: always
+      prev: "*"
+      next: export
+  no-param-reassign:
+    - 2
+    - props: false
+  no-console:
+    - error
+    - allow:
+        - warn
+        - error
+  object-curly-newline:
+    - error
+    - ImportDeclaration:
+        minProperties: 1
+        multiline: true
+        consistent: true
+      ObjectExpression:
+        consistent: true
+        minProperties: 3
+
+parserOptions:
+  parser: babel-eslint
+
+globals:
+  inject: false
