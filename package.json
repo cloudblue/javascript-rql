@@ -1,8 +1,24 @@
 {
   "name": "javascript-rql",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Javascript RQL lib to transform js object to rql query string",
   "main": "dist/rql.js",
+  "keywords": [
+    "rql",
+    "node-rql",
+    "javascript-rql",
+    "cloudblue-rql",
+    "jsrql",
+    "javascriptRql",
+    "nodeRql",
+    "rql-formatter",
+    "rql-format",
+    "rqlFormat",
+    "rqlparse",
+    "rql-parse",
+    "parserql",
+    "parse-rql"
+  ],
   "directories": {
     "doc": "docs",
     "test": "tests"
