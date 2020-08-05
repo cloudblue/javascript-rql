@@ -1,8 +1,12 @@
 # Javascript RQL
-javascript-rql is a simple and powerful library to transform javascript object to valid rql query string. Supports queries of any complexity (any nesting).
+[![Build Status](https://travis-ci.org/cloudblue/javascript-rql.svg?branch=master)](https://travis-ci.org/cloudblue/javascript-rql)
+[![codecov](https://codecov.io/gh/cloudblue/javascript-rql/branch/master/graph/badge.svg)](https://codecov.io/gh/cloudblue/javascript-rql)
+[![npm](https://img.shields.io/npm/v/javascript-rql)](https://img.shields.io/npm/v/javascript-rql)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=javascript-rql&metric=alert_status)](https://sonarcloud.io/dashboard?id=javascript-rql)
 
-RQL
----
+The javascript-rql is a simple and powerful library to transform javascript object to valid rql query string. Supports queries of any complexity (any nesting).
+
+## RQL
 
 RQL (Resource query language) is designed for modern application development. It is built for the web, ready for NoSQL, and highly extensible with simple syntax.
 This is a query language fast and convenient database interaction. RQL was designed for use in URLs to request object-style data structures.
@@ -14,11 +18,18 @@ This is a query language fast and convenient database interaction. RQL was desig
 
 [Django RQL](https://github.com/cloudblue/django-rql)
 
-Interface
----
+## Install
+
+To install the javascript-rql from a terminal window type:
+
+```sh
+$ npm install --save javascript-rql
+```
+
+## Interface
 
 Javascript object with rql expressions should implement the following interface (typescript example):
-```
+```typescript
 interface IRQLExpression {
     $eq?: string|number,
     $ne?: string|number,
@@ -47,39 +58,36 @@ interface IRQL {
     [key: string]?: string|number|Array<string|number>|boolean|IRQLExpression;
 }
 ```
-Usage
----
+## Usage
 You can import rql function:
-```
+```js
 import { rql } from 'javascript-rql';
 ```
 or
-```
+```js
 const { rql } = require('javascript-rql');
 ```
 
 and use:
-```
-rql(...)
+```js
+rql(rqlObject);
 ```
 
 
-Examples
----
+## Examples
 
 ##### Simple filters
-
-```
+```js
 const filter = {
   name: 'eugene',
   age: 13,
 };
  
-rql(filter) // 'name=eugene&age=13'
+rql(filter); // 'name=eugene&age=13'
 ```
 
 ##### Filters with text matching
-```
+```js
 const filter = {
   name: {
     $like: 'vasya*',
@@ -87,11 +95,11 @@ const filter = {
   },
 };
  
-rql(filter) //'like(name,*vasya\**)&ilike(name,*\*\*\*New*)'
+rql(filter); //'like(name,*vasya\**)&ilike(name,*\*\*\*New*)'
 ```
 
 ##### Filter with list
-```
+```js
 const filter = {
   age: {
     $out: [1, 2],
@@ -101,11 +109,11 @@ const filter = {
   },
 };
  
-rql(filter) //'out(age,(1,2))&in(num,(3,4,5))'
+rql(filter); //'out(age,(1,2))&in(num,(3,4,5))'
 ```
 
 ##### Filters with range
-```
+```js
 const filter = {
   age: {
     $range: {
@@ -115,11 +123,11 @@ const filter = {
   },
 };
  
-rql(filter) //'range(age,9,5)'
+rql(filter); //'range(age,9,5)'
 ```
 
 ##### Filters with relationals
-```
+```js
 const filter = {
   name: {
     $eq: 'vasya',
@@ -134,11 +142,11 @@ const filter = {
   },
 };
 
-rql(filter) //'eq(name,vasya)&gt(age,1)&lt(age,8)&lte(num,9)&gte(num,4)'
+rql(filter); //'eq(name,vasya)&gt(age,1)&lt(age,8)&lte(num,9)&gte(num,4)'
 ```
 
 ##### Filters with logical NOT
-```
+```js
 const filter = {
   name: {
     $not: [{
@@ -155,11 +163,11 @@ const filter = {
   },
 };
 
-rql(filter) //'not(eq(name,vasya))&not(eq(name,petya))&not(eq(age,10))&not(in(age,(1,2,3)))'
+rql(filter); //'not(eq(name,vasya))&not(eq(name,petya))&not(eq(age,10))&not(in(age,(1,2,3)))'
 ```
 
 ##### Filters with logical OR
-```
+```js
 const filter = {
   // You can use $or inside field
   color: {
@@ -179,12 +187,11 @@ const filter = {
   ],
 };
  
-rql(filter) //'(((eq(color,red))|(eq(color,blue)))|(eq(color,yellow)))&((product=TV)|(product=Computer))'
+rql(filter); //'(((eq(color,red))|(eq(color,blue)))|(eq(color,yellow)))&((product=TV)|(product=Computer))'
 ```
 
 ##### Combine AND and OR filters
-
-```
+```js
 // When you need to use same keys in and conditions (for example with OR) you can use special logical AND:
 const filter = {
   $and: [
@@ -203,21 +210,21 @@ const filter = {
   ]
 };
  
-rql(filter) // "(((status=new)|(type=program)))&(((status=done)|(type=service)))"
+rql(filter); // "(((status=new)|(type=program)))&(((status=done)|(type=service)))"
 ```
 
 ##### Filters with control operators
-```
+```js
 const filter = {
   $select: ['products', 'agreements'],
   $ordering: '-created',
 };
  
-rql(filter) //Result: 'select(products,agreements)&ordering(-created)'
+rql(filter); //Result: 'select(products,agreements)&ordering(-created)'
 ```
 
 ##### Combine any filters in one query
-```
+```js
 const combinationFilter = {
   offset: 0,
   limit: 10,
@@ -242,11 +249,11 @@ const combinationFilter = {
   },
 };
 
-rql(filter) //'offset=0&limit=10&select(products,agreements)&ordering(title,-created)&((type=distribution&eq(owner,me))|(in(type,(sourcing,service))&not(eq(owner,me))))&(((like(name,"*my test*"))|(like(name,*my*)))|(ilike(name,*\*\*\*CONTRACT*)))'
+rql(filter); //'offset=0&limit=10&select(products,agreements)&ordering(title,-created)&((type=distribution&eq(owner,me))|(in(type,(sourcing,service))&not(eq(owner,me))))&(((like(name,"*my test*"))|(like(name,*my*)))|(ilike(name,*\*\*\*CONTRACT*)))'
 ```
 
 ##### Filters with empty values 
-```
+```js
 // If values are empty, null, undefined then they will not be in the query.
 const filter = {
   $select: [],
@@ -257,7 +264,16 @@ const filter = {
   type: 'pending',
 };
 
-rql(filter) //'type=pending'
+rql(filter); //'type=pending'
 ```
+
+## Contribute
+
+If you want to contribute to the javascript-rql development feel free to open issues or fork the github repository and submit your pull request.
+
+
+## License
+
+The javascript-rql is licensed under the [*Apache License 2.0*](http://www.apache.org/licenses/LICENSE-2.0).
 
 
