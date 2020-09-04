@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- 12
+script:
+- npm run test && npm run build && npx codecov
+- sonar-scanner
+addons:
+  sonarcloud:
+    organization: cloudbluesonarcube
+    token:
+      secure: wTad2c6T/46x0iZ3wP9NG+hnr7XKDyo/8iAetsxcoXVJshRMpQ+Y36d6RBgInyBgryRB4TrFe17aaIM7xTmCSiX3L9QrwXeVy7794kouuQ+qYx6pjW85VC+H5cSeyab2+ywPYqR22VnsO26PMiiPovAr3M2Jzx648eexDCrSObq+pEPTu8bfIz6RBl/ET6cySAAfjvo4+ayGM2VvIxVpHR/KeICglL3lxUL7Jo0AYwwI+5+i1eIAwNtG+kMsUSh5nMrvrl6icAbQH7ebVBpLO34AgMrhnpYwQCHy+/yfyWHZskKdst7j3u2wvjQhqOspn6fhcIXWoX5Rx8iKD5m+fdTHcuTVVHWJHbThCK4HDUHNu1smTo/CdAJUB3pQn53asc1+7ZfLWQ7Tt+wQ/DglRQCt11uu2J8HpFRkLJHfibGpJejceYYPRLnq0TpiYFl4qk7zx3lJIr0ePBsayjFwB9GRLV3cWtKbEZRl3K/90YCah/brsUc9Hy8G89cIq93MvH5QyEZDJY3qfcXgvLtRNvEMUIWz1erlm6DqHAkZsjFkojob9sRwVdG/+szIe3a2zpU/6sVmU9wmRW1j8i3pO4bfX4aHc/q7Pcm3UlxVOQYPacK1NzniXTLvdiVl83IFYQPCgDti+wiQHOFN5PFwg68tnjV+F0mLrJbRpSgY4cQ=
+deploy:
+  provider: npm
+  email: marc.serratbote@ingrammicro.com
+  api_key:
+    secure: RH516PUoT/NjljcbTxSgcCaEAqNXJ68D/fcgj8OHRgau/XzZ/P++Vxy9Ii955+9f1xA2OgZnqIhZSDZtP3oIj4VLeTPgGnlfE7ZQ/MdPnTxL63wcK/KtsI4FNjz6/H5fXw27eV831FYjtvfhgI0p/Z2TFHVt/Z4tKUh+g3XQpPY4CWwRDj98g4+J23K6ntqrv/OogLkEL/tpK8mMWFWJRWxYrHtaLXt6ArEwvQKvfHec0k/L6ec6/JQulUqymVRZhEHGlGLCPSIquH0FyVOao2dAdqf39Rtn7lD6bkiaeaMhmcejoI7wblt5I1j8Ni32WCWb4h/DgwNyYysPzJb+oQApHW75a/P7u5SipWejhZuqdB4mr5Boa531XcZGLMU8T4tJ4DlqpgDnEVuAWm6r2wMFT7iAkxhZcN1ZTEI0TEEsOGIcnwqaplFc2ZiZFMbzc/QW1GpYQBHzRq5tmQtf69lE3gaU3dwZXQsEoMpoTE1+tlDODXX7JWlMl1nsJM/3ba4OvTss20wCoouf5TJNB6UIG+ugfWyJygKnsMuBVNHkY82wyUfVg3sNQxROSYwgZBMCns4VkdNdSWYhHQZ9xKBEHi9mvwwKjGG20UOIttuYrv4TlLyiiX/gujMJc0a19FdJiAwrPv2DzuxMR3/KvFkMqHmZgSaa/wlUk9QRfjY=
+  on:
+    repo: cloudblue/javascript-rql
+    branch: master

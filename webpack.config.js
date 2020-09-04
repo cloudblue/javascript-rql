@@ -14,6 +14,10 @@ const webpackConfig = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'rql.js',
+    libraryTarget: 'umd',
+    library: 'lib',
+    umdNamedDefine: true,
+    globalObject: '(typeof self !== \'undefined\' ? self : this)',
   },
 
   resolve: {

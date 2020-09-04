@@ -1,8 +1,24 @@
 {
   "name": "javascript-rql",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Javascript RQL lib to transform js object to rql query string",
-  "main": "lib/index.js",
+  "main": "dist/rql.js",
+  "keywords": [
+    "rql",
+    "node-rql",
+    "javascript-rql",
+    "cloudblue-rql",
+    "jsrql",
+    "javascriptRql",
+    "nodeRql",
+    "rql-formatter",
+    "rql-format",
+    "rqlFormat",
+    "rqlparse",
+    "rql-parse",
+    "parserql",
+    "parse-rql"
+  ],
   "directories": {
     "doc": "docs",
     "test": "tests"
@@ -14,14 +30,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/borzovplus/javascript-rql.git"
+    "url": "git+https://github.com/cloudblue/javascript-rql"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/borzovplus/javascript-rql/issues"
+    "url": "https://github.com/cloudblue/javascript-rql/issues"
   },
-  "homepage": "https://github.com/borzovplus/javascript-rql#readme",
+  "homepage": "https://github.com/cloudblue/javascript-rql#readme",
   "dependencies": {
     "ramda": "^0.27.1"
   },
