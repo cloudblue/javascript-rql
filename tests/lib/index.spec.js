@@ -26,9 +26,34 @@ describe('#rql', () => {
       $like: 'vasya*',
       $ilike: '***New',
     },
+    city: {
+      $like: {
+        start: 'M',
+        end: 'w',
+      },
+      $ilike: {
+        start: 'M',
+      },
+    },
+    country: {
+      $like: {
+        end: 'a',
+      },
+      $ilike: {
+        pattern: '*u*ss*',
+        start: 'R',
+        end: 'a',
+      },
+    },
+    area: {
+      $ilike: true,
+      $like: {
+        invalidKey: 'qwe',
+      },
+    },
   };
 
-  const textMatchingFilterQuery = 'like(name,*vasya\\**)&ilike(name,*\\*\\*\\*New*)';
+  const textMatchingFilterQuery = 'like(name,*vasya\\**)&ilike(name,*\\*\\*\\*New*)&like(city,M*w)&ilike(city,M*)&like(country,*a)&ilike(country,R*a)&ilike(country,*u*ss*)';
 
   // List filter
   const listFilter = {
