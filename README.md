@@ -239,13 +239,16 @@ rql(filter); // "(((status=new)|(type=program)))&(((status=done)|(type=service))
 ```
 
 ##### Filters with control operators
+We support 2 key for ordering: ordering and sort. Use the one which is implemented by the backend.
 ```js
 const filter = {
   $select: ['products', 'agreements'],
   $ordering: '-created',
+  $sort: ['-name'],
+  $limit: { start: 10, count: 100 },
 };
  
-rql(filter); //Result: 'select(products,agreements)&ordering(-created)'
+rql(filter); //Result: 'select(products,agreements)&ordering(-created)&sort(-name)&limit(10,100)'
 ```
 
 ##### Combine any filters in one query
