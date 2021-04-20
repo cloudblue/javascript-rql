@@ -40,7 +40,7 @@ describe('utils.isObjectStrict', () => {
     [false, []],
     [false, ''],
     [false, 123],
-    [false, () => {}],
+    [false, () => ({})],
     [false, true],
     [false, undefined],
     [false, null],
