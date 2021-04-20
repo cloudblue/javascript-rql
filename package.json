@@ -1,6 +1,6 @@
 {
   "name": "javascript-rql",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Javascript RQL lib to transform js object to rql query string",
   "main": "dist/rql.js",
   "keywords": [
