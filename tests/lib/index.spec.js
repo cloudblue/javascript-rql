@@ -136,9 +136,11 @@ describe('#rql', () => {
   const controlFilter = {
     $select: ['products', 'agreements'],
     $ordering: '-created',
+    $sort: ['-name', 'created'],
+    $limit: { start: 10, count: 100 },
   };
 
-  const controlFilterQuery = 'select(products,agreements)&ordering(-created)';
+  const controlFilterQuery = 'select(products,agreements)&ordering(-created)&sort(-name,created)&limit(10,100)';
 
   // Combination filters
   const combinationFilter = {
@@ -146,6 +148,7 @@ describe('#rql', () => {
     limit: 10,
     $select: ['products', 'agreements'],
     $ordering: ['title', '-created'],
+    $limit: { count: 99 },
     $or: [
       {
         type: 'distribution',
@@ -179,10 +182,11 @@ describe('#rql', () => {
     },
   };
 
-  const combinationFilterQuery = 'offset=0&limit=10&select(products,agreements)&ordering(title,-created)&(((type=distribution&eq(owner,me))|(in(type,(sourcing,service))&not(eq(owner,me))))|(eq(owner,me)&(((type=distribution)|(status=pending)))&(((type=program)|(status=active)))))&(((like(name,"*my test*"))|(like(name,*my*)))|(ilike(name,*\\*\\*\\*CONTRACT*)))&ne(name,"not my test")';
+  const combinationFilterQuery = 'offset=0&limit=10&select(products,agreements)&ordering(title,-created)&limit(0,99)&(((type=distribution&eq(owner,me))|(in(type,(sourcing,service))&not(eq(owner,me))))|(eq(owner,me)&(((type=distribution)|(status=pending)))&(((type=program)|(status=active)))))&(((like(name,"*my test*"))|(like(name,*my*)))|(ilike(name,*\\*\\*\\*CONTRACT*)))&ne(name,"not my test")';
 
   // Filter with empty values
   const filterWithEmptyValues = {
+    $limit: {},
     $or: [
       {
         age: null,
