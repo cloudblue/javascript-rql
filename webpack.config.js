@@ -3,7 +3,6 @@
  */
 
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 const webpackConfig = {
@@ -49,10 +48,6 @@ const webpackConfig = {
         exclude: /node_modules/,
       },
     ],
-  },
-
-  optimization: {
-    minimizer: [new UglifyJsPlugin()],
   },
 };
 
